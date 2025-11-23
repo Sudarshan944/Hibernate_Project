@@ -6,6 +6,7 @@ import java.util.List;
 
 //@Embeddable // Embedding laptop columns to alien table
 @Entity
+@Cacheable // l2 cache implementation
 public class Laptop {
     @Id
     private int lid;

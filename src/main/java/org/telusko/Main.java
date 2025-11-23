@@ -92,20 +92,53 @@ public class Main {
 
 
         // Fetching
+//
+//        SessionFactory sf = new Configuration()
+//                // .addAnnotatedClass(org.telusko.Alien.class)
+//                .addAnnotatedClass(org.telusko.Laptop.class)
+//                .configure()
+//                .buildSessionFactory();
+//        Session session = sf.openSession();
+//        // 2 types of fetches
+//        Laptop l1 = session.find(Laptop.class,2); // (i) . EAGER fetch
+//        //Laptop l1 = session.byId(Laptop.class).getReference(2); //(ii). LAZY Fectch when called upon then only query is hit
+//        System.out.println(l1);
+//
+//
+//        session.close();
+//        sf.close();
+
+        // Implementing L2 cache using EMPoptions
+
+        /**
+         * to implement l2 cache we need to add dependency like ehcache
+         * l2 cache means to cache data across sessions
+         * normally l1 cache will only cache data within the session
+         */
+
 
         SessionFactory sf = new Configuration()
                 // .addAnnotatedClass(org.telusko.Alien.class)
                 .addAnnotatedClass(org.telusko.Laptop.class)
                 .configure()
                 .buildSessionFactory();
+
+        // session1
         Session session = sf.openSession();
-        // 2 types of fetches
-        Laptop l1 = session.find(Laptop.class,2); // (i) . EAGER fetch
-        //Laptop l1 = session.byId(Laptop.class).getReference(2); //(ii). LAZY Fectch when called upon then only query is hit
+
+        Laptop l1 = session.find(Laptop.class,2);
         System.out.println(l1);
-
-
         session.close();
+
+        //session 2
+        Session session1 = sf.openSession();
+        Laptop l2 = session1.find(Laptop.class,2);
+        System.out.println(l2);
+
+
+        session1.close();
         sf.close();
+
+
     }
 }
