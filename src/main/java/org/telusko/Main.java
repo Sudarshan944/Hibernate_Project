@@ -99,8 +99,9 @@ public class Main {
                 .configure()
                 .buildSessionFactory();
         Session session = sf.openSession();
-
-        Laptop l1 = session.byId(Laptop.class).getReference(2); //Lazy Fectch when called upon then only query is hit
+        // 2 types of fetches
+        Laptop l1 = session.find(Laptop.class,2); // (i) . EAGER fetch
+        //Laptop l1 = session.byId(Laptop.class).getReference(2); //(ii). LAZY Fectch when called upon then only query is hit
         System.out.println(l1);
 
 
