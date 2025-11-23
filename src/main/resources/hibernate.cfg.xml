@@ -1,0 +1,12 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/telusko</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">8500659446</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- specify the dialect for PostgreSQL-->
+        <property name="hibernate.show_sql">true</property> <!-- to show SQL queries in console-->
+<!--        <property name="hibernate.format_sql">true</property> &lt;!&ndash; to format SQL queries in console&ndash;&gt;-->
+    </session-factory>
+</hibernate-configuration>
