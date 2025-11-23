@@ -100,8 +100,8 @@ public class Main {
                 .buildSessionFactory();
         Session session = sf.openSession();
 
-        Laptop l1 = session.load(Laptop.class,2);
-        System.out.println(l1);
+        //Laptop l1 = session.load(Laptop.class,2);
+        //System.out.println(l1);
 
 
         session.close();
