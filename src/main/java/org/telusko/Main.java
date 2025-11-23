@@ -100,8 +100,8 @@ public class Main {
                 .buildSessionFactory();
         Session session = sf.openSession();
 
-        //Laptop l1 = session.load(Laptop.class,2);
-        //System.out.println(l1);
+        Laptop l1 = session.byId(Laptop.class).getReference(2); //Lazy Fectch when called upon then only query is hit
+        System.out.println(l1);
 
 
         session.close();
