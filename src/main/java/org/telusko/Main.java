@@ -114,6 +114,7 @@ public class Main {
          * to implement l2 cache we need to add dependency like ehcache
          * l2 cache means to cache data across sessions
          * normally l1 cache will only cache data within the session
+         * add @cacheable in that class to use second level cache
          */
 
 
